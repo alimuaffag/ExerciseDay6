@@ -95,17 +95,20 @@ public class Main {
         System.out.println("Enter size of array: ");
         int size = scan.nextInt();
         int[] number = new int[size];
-        int max = 0;
+        int larger = 0;
         for (int i = 0; i <= number.length - 1; i++) {
             System.out.println("Enter any number: ");
             number[i] = scan.nextInt();
         }
-        for (int maxNumber : number) {
-            if (maxNumber >= max) {
-                max = maxNumber;
+
+            if (number[0] >= number[number.length-1]) {
+                larger = number[0];
+            }else {
+                larger = number[number.length-1];
+
             }
-        }
-        System.out.println("Larger value between first and last element: : " + max);
+
+        System.out.println("Larger value between first and last element: : " + larger);
     }
 
     static void forthQuestion(Scanner scan) {
@@ -171,7 +174,7 @@ public class Main {
     }
 
     static void sixthQuestion(Scanner scan) {
-        boolean isEqual = false;
+        boolean isEqual = true;
         int[] firstNumber = {2, 3, 6, 6, 4};
         ArrayList<Integer> secondNumbers = new ArrayList<>();
         for (int i = 0; i <= firstNumber.length - 1; i++) {
@@ -179,9 +182,8 @@ public class Main {
             secondNumbers.add(i, scan.nextInt());
         }
         for (int i = 0; i <= firstNumber.length - 1; i++) {
-            if (firstNumber[i] == secondNumbers.get(i)) {
-                isEqual = true;
-            } else {
+            if (firstNumber[i] != secondNumbers.get(i)) {
+                isEqual = false;
                 break;
             }
         }
